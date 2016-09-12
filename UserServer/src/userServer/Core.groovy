@@ -1,13 +1,27 @@
 package userServer
 
+import groovy.json.JsonBuilder
+
 import javax.ws.rs.GET
 import javax.ws.rs.Path
+import javax.ws.rs.Produces
+import javax.ws.rs.core.MediaType
+
+//@Path('/')
+//public class Root {
+//	@GET
+//	public String get() {
+//		return "Hello Server"
+//	}
+//}
 
 @Path('/')
-public class Root {
+class Root {
 	@GET
-	public String get() {
-		return "Hello Server"
+	@Path('/resource')
+	@Produces([MediaType.APPLICATION_JSON])
+	def resource() {
+		new JsonBuilder("Hello Server")
+				.toPrettyString()
 	}
 }
-
