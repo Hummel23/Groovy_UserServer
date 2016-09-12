@@ -2,6 +2,7 @@ package userServer
 
 class User {
 	
+	
 	def name, email
 	def inetAddr = findIPAddress()
 	
