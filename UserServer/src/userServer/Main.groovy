@@ -13,7 +13,7 @@ class Main {
 		
 		//change to individual local IP
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
-			"http://141.45.206.251:8080".toURI(),
+			"http://141.45.211.14:8080".toURI(),
 			new ResourceConfig(Root.class));
 		System.out.println("Press any key to close")
 		System.in.read()
