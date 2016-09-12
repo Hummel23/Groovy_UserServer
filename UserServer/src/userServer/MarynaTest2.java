@@ -1,5 +1,5 @@
 package userServer;
 
-public class MarynaTest2 {
+public class MarynaTest2  {
 
 }
