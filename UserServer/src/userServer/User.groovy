@@ -6,12 +6,17 @@ class User {
 	
 	
 	def name
-	//def ip
+	def ip
+		
 	
 	
 
 	
 	
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", ip=" + ip + "]";
+	}
 	def inetAddr = findIPAddress()
 	
 	/**
