@@ -7,11 +7,7 @@ class User {
 	
 	def name
 	//def ip
-	
-	
 
-	
-	
 	def inetAddr = findIPAddress()
 	
 	/**
