@@ -11,7 +11,7 @@ import javax.ws.rs.Path
 
 class GetList{
 	
-	@GET 
+	@GET  
 	@Path('/list')
 	public String getList(){
 		
