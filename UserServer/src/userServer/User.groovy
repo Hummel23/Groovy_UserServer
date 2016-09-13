@@ -1,9 +1,17 @@
 package userServer
 
+import java.util.List;
+
 class User {
 	
 	
-	def name, email
+	def name
+	//def ip
+	
+	
+
+	
+	
 	def inetAddr = findIPAddress()
 	
 	/**
