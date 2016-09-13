@@ -19,7 +19,7 @@ class GetList{
             def builder = new groovy.json.JsonBuilder()
 				builder {
 					 rows (userListe.collect{pair -> [pair.collect {item ->  item}]})
-				} 
+				}   
 				builder.toPrettyString()
 				println builder
 	}				
