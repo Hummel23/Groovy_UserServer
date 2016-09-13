@@ -9,17 +9,23 @@ import javax.ws.rs.core.Context
 
 import userServer.services.UserService
 
+
+
 @Path('/')
-class Login {
+
+class Login{
+	
+		static List <User> userListe = new ArrayList<>()
+		
 		@GET
 		@Path('/login')
+		
 		public String get(
 				@QueryParam('name') String name){
 //			String ip = request.getRemoteAddr()
 //			UserService userService = new UserService()   //= getInstance()
 //			userService.userListe.add(new User(name))
-				List <User> userListe = new ArrayList<>()
-				userListe.add(name)
+				Login.userListe.add(name)
 				return userListe
 		}
 }
