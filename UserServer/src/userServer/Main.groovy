@@ -8,7 +8,7 @@ import org.glassfish.jersey.server.ResourceConfig
 
 class Main {
 
-	static main(args) {
+	static main(args) { 
 		
 		//start server
 		//TODO: IP should be fix
