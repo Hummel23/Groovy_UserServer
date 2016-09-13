@@ -9,10 +9,6 @@ class User {
 	def ip
 		
 	
-	
-
-	
-	
 	@Override
 	public String toString() {
 		return "[name=" + name + ", ip=" + ip + "]";

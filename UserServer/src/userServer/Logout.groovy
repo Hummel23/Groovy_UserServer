@@ -1,0 +1,7 @@
+package userServer
+
+class Logout {
+
+	
+	
+}

@@ -26,13 +26,10 @@ class Login{
 		        String ip = request.getRemoteAddr()
 		        User user = new User (name: name, ip:ip)
 				Login.userListe.add(user)	
-			//	return userListe
+				return userListe
+				
+				
 
-				//erzeugt JSON
-                 def builder = new groovy.json.JsonBuilder()
-				 builder {
-					 rows (userListe.collect{pair -> [pair.collect {item ->  item}]})
-				 }
-				// println builder.toPrettyString()
+				
 	}				
 }
