@@ -15,13 +15,13 @@ class User {
 	
 	@Override
 	public String toString() {
-		return "User [name=" + name + ", ip=" + ip + "]";
+		return "[name=" + name + ", ip=" + ip + "]";
 	}
-	def inetAddr = findIPAddress()
+	/*def inetAddr = findIPAddress()
 	
-	/**
+	*//**
 	 * Get users IP-address
-	 */
+	 *//*
 	String findIPAddress(){
 		try {
 			def inetAddr 
@@ -30,5 +30,5 @@ class User {
 		catch (UnknownHostException e) {
 			println "Host not found: " + e.getMessage()
 		}
-	}
+	}*/
 }
