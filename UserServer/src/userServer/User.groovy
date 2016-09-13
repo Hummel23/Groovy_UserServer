@@ -8,7 +8,11 @@ class User {
 	def name
 	def ip
 		
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/Hummel23/Groovy_UserServer
 	@Override
 	public String toString() {
 		return "[name=" + name + ", ip=" + ip + "]";
