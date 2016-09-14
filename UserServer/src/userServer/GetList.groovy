@@ -19,21 +19,10 @@ class GetList{
 	@Path('/list')
 	@Produces([MediaType.APPLICATION_JSON])
 	def getList(){
-		println "on server in /list"
-			def list = Login.userListe
-			return new JsonBuilder(list)
-			.toPrettyString()
-			}
-//		//TODO: send JSON instead of generic
-//		List<User> userListe = Login.userListe;
-////		def builder = new groovy.json.JsonBuilder()
-////		builder {
-////			rows (userListe.collect{pair -> [pair.collect {item ->  item}]})
-////		}
-////		builder.toPrettyString()
-//		GenericEntity<List<User>> genericList = new GenericEntity<List<User>>(userListe) {};
-//		//return Response.ok(genericList).build();
-//		return Response.ok().entity(genericList).build()
-//		//return userListe;
+		def list = Login.userListe
+		return new JsonBuilder(list)
+				.toPrettyString()
 	}
+
+}
 
