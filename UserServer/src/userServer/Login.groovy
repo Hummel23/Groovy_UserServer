@@ -1,14 +1,12 @@
 package userServer
-
-import groovy.xml.MarkupBuilder
+import groovy.json.*
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
+import javax.ws.rs.Produces
 import javax.ws.rs.QueryParam
 import javax.ws.rs.core.Context
-
-import org.apache.commons.collections.functors.FalsePredicate;
-
+import javax.ws.rs.core.MediaType
 
 @Path('/')
 
@@ -21,11 +19,11 @@ class Login{
 
 	@GET
 	@Path('/login')
-
-	public boolean login(@QueryParam('name') String name){
+	@Produces([MediaType.APPLICATION_JSON])
+	public String login(@QueryParam('name') String name){
 		boolean loginSuccess = true;
-
 		String ip = request.getRemoteAddr()
+		assert ip instanceof String
 		User user = new User (name: name, ip:ip)
 		for (u in userListe) {
 			if(u.name.equals(name)){
