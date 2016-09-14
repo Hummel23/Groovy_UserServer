@@ -8,11 +8,6 @@ class User {
 	def name
 	def ip
 		
-
-	
-
-
-
 	@Override
 	public String toString() {
 		return "[name=" + name + ", ip=" + ip + "]";
