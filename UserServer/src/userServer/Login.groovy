@@ -23,13 +23,13 @@ class Login{
 	public String login(@QueryParam('name') String name){
 		boolean loginSuccess = true;
 		String ip = request.getRemoteAddr()
-		assert ip instanceof String
 		User user = new User (name: name, ip:ip)
 		for (u in userListe) {
 			if(u.name.equals(name)){
-				loginSuccess = false;
+				loginSuccess=false
 			}
 		}
+
 		if(loginSuccess){
 			Login.userListe.add(user)
 		}
