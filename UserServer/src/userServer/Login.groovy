@@ -22,19 +22,15 @@ class Login{
 	@GET
 	@Path('/login')
 
-	public boolean login(@QueryParam('name') String name){
-		boolean loginSuccess = true;
-
+	public def login(@QueryParam('name') String name){
+	
 		String ip = request.getRemoteAddr()
 		User user = new User (name: name, ip:ip)
 		for (u in userListe) {
 			if(u.name.equals(name)){
-				loginSuccess = false;
+				return null;
 			}
 		}
-		if(loginSuccess){
-			Login.userListe.add(user)
-		}
-		return loginSuccess;
+		return ip
 	}
 }
