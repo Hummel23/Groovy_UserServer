@@ -23,14 +23,15 @@ class Login{
 	@Path('/login')
 
 	public def login(@QueryParam('name') String name){
-	
+		
 		String ip = request.getRemoteAddr()
 		User user = new User (name: name, ip:ip)
 		for (u in userListe) {
 			if(u.name.equals(name)){
-				return null;
+				return false
 			}
 		}
+		userListe.add(user)
 		return ip
 	}
 }

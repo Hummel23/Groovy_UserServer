@@ -5,7 +5,7 @@ import java.util.List;
 class User {
 	
 	
-	def name
+	String name
 	def ip
 		
 	@Override
