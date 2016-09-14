@@ -33,6 +33,7 @@ class Login{
 		if(loginSuccess){
 			Login.userListe.add(user)
 		}
-		return loginSuccess;
+		def json = loginSuccess ? new JsonBuilder(ip).toPrettyString() : new JsonBuilder("").toPrettyString()
+		return json
 	}
 }
