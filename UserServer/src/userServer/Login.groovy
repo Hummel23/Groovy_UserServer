@@ -1,5 +1,9 @@
 package userServer
-import groovy.json.*
+
+
+import groovy.json.JsonBuilder
+
+import java.util.concurrent.LinkedBlockingQueue
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -15,8 +19,8 @@ class Login{
 	@Context
 	org.glassfish.grizzly.http.server.Request request
 
-	static List <User> userListe = new ArrayList<>()
-
+	static def userListe = [] as LinkedBlockingQueue<User>
+	
 	@GET
 	@Path('/login')
 	@Produces([MediaType.APPLICATION_JSON])
