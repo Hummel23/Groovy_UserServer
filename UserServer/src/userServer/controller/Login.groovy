@@ -1,9 +1,7 @@
-package userServer
+package userServer.controller
 
 
 import groovy.json.JsonBuilder
-
-import java.util.concurrent.LinkedBlockingQueue
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
@@ -12,6 +10,9 @@ import javax.ws.rs.QueryParam
 import javax.ws.rs.core.Context
 import javax.ws.rs.core.MediaType
 
+import userServer.model.User
+import userServer.services.UserService
+
 @Path('/')
 
 class Login{
@@ -19,25 +20,18 @@ class Login{
 	@Context
 	org.glassfish.grizzly.http.server.Request request
 
-	static def userListe = [] as LinkedBlockingQueue<User>
 	
 	@GET
 	@Path('/login')
 	@Produces([MediaType.APPLICATION_JSON])
 	public String login(@QueryParam('name') String name){
-		boolean loginSuccess = true;
+		boolean namePresent = UserService.instance.checkNamePresent(name);
 		String ip = request.getRemoteAddr()
-		User user = new User (name: name, ip:ip)
-		for (u in userListe) {
-			if(u.name.equals(name)){
-				loginSuccess=false
-			}
+		if(!namePresent){
+			User user = new User (name: name, ip:ip)
+			UserService.instance.addUser(user)
 		}
-
-		if(loginSuccess){
-			Login.userListe.add(user)
-		}
-		def json = loginSuccess ? new JsonBuilder(ip).toPrettyString() : new JsonBuilder("").toPrettyString()
+		def json = namePresent ? new JsonBuilder("").toPrettyString():new JsonBuilder(ip).toPrettyString()  
 		return json
 	}
 }

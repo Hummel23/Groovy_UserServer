@@ -1,4 +1,4 @@
-package userServer
+package userServer.controller
 
 import javax.ws.rs.GET
 import javax.ws.rs.Path
