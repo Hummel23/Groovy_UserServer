@@ -18,9 +18,9 @@ class Main {
 	 * change IP to individual local inetAddr
 	 * @param args
 	 */
-	static main(args) {  
+	static main(args) {
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
-			"http://192.168.2.104:8081".toURI(), new ResourceConfig(Login.class, List.class, Logout.class, InetAddr.class))
+				"http://192.168.2.104:8081".toURI(), new ResourceConfig(Login.class, List.class, Logout.class, InetAddr.class))
 		println ("press any key to close")
 		System.in.read()
 		server.stop()

@@ -42,6 +42,12 @@ class UserService {
 	}
 
 	void addUser (User user){
+		String userIP = user.ip
+		for (u in userListe){
+			if (u.ip==userIP){
+				userListe.remove(u)
+			}
+		}
 		userListe.add(user)
 	}
 
