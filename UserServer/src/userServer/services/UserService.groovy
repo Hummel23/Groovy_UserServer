@@ -14,6 +14,12 @@ class UserService {
 	boolean removeUserFromList(def inetAddr){
 
 		boolean success = false
+		
+		//ODER		
+//				userListe.each{ it -> it.ip == inetAddr
+//					userListe.remove(it)
+//					success = true
+//				}
 		for (u in userListe) {
 			if(u.ip.equals(inetAddr)) {
 				assert u.ip == inetAddr
