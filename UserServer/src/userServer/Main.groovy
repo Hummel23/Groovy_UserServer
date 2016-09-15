@@ -13,14 +13,14 @@ import userServer.controller.Logout
 
 class Main {
 
+	/**
+	 * to start server:
+	 * change IP to individual local inetAddr
+	 * @param args
+	 */
 	static main(args) {  
-		
-		//start server
-		//TODO: IP should be fix
-		
-		//change to individual local IP
 		HttpServer server = GrizzlyHttpServerFactory.createHttpServer(
-			"http://141.45.209.103:8081".toURI(), new ResourceConfig(Login.class, List.class, Logout.class, InetAddr.class))
+			"http://192.168.2.104:8081".toURI(), new ResourceConfig(Login.class, List.class, Logout.class, InetAddr.class))
 		println ("press any key to close")
 		System.in.read()
 		server.stop()
