@@ -26,13 +26,13 @@ class UserService {
 	}
 
 	def findInetAddr (String name){
-		for(user in userListe){
-			if(user.name == name){
-				return user.ip
-			}else{
-				return ""
+		def ip = ""
+		for(u in userListe){
+			if(u.name.equals(name)){
+				ip=u.ip
 			}
 		}
+		return ip
 	}
 
 	void addUser (User user){

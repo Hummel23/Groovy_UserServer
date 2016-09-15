@@ -24,9 +24,7 @@ class InetAddr {
 
 	public String findInetAddr(@QueryParam('name') String name){
 		def ip = UserService.instance.findInetAddr(name.trim().toLowerCase())
-		println "This is the result of findInetAddr method: " + ip
 		def json = new JsonBuilder(ip).toPrettyString()
-		println "this is the json" + json
 		return json
 	}
 }
