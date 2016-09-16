@@ -21,11 +21,11 @@ class InetAddr {
 	@GET
 	@Path('/findInetAddr')
 	@Produces([MediaType.APPLICATION_JSON])
-
 	public String findInetAddr(@QueryParam('name') String name){
+		
 		def ip = UserService.instance.findInetAddr(name.trim().toLowerCase())
-		def json = new JsonBuilder(ip).toPrettyString()
-		return json
+		return new JsonBuilder(ip).toPrettyString()
+		
 	}
 }
 

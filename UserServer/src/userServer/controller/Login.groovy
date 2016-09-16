@@ -24,14 +24,17 @@ class Login{
 	@GET
 	@Path('/login')
 	@Produces([MediaType.APPLICATION_JSON])
-	public String login(@QueryParam('name') String name){
+	public String login(@QueryParam('name') String name){ 
+		
 		boolean namePresent = UserService.instance.checkNamePresent(name);
 		String ip = request.getRemoteAddr()
+		
 		if(!namePresent){
 			User user = new User (name: name, ip:ip)
 			UserService.instance.addUser(user)
 		}
-		def json = namePresent ? new JsonBuilder("").toPrettyString():new JsonBuilder(ip).toPrettyString()  
-		return json
+		
+		return namePresent ? new JsonBuilder("").toPrettyString():new JsonBuilder(ip).toPrettyString()  
+		
 	}
 }

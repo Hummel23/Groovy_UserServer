@@ -20,7 +20,6 @@ class Logout{
 	public boolean logout(){
 		String inetAddr = request.getRemoteAddr()
 		UserService.instance.removeUserFromList(inetAddr)
-	
 	}
 }
 

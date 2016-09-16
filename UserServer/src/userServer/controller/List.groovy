@@ -19,9 +19,11 @@ class List{
 	@Path('/list')
 	@Produces([MediaType.APPLICATION_JSON])
 	def getList(){
+		
 		def list = UserService.instance.getUserListe()
 		return new JsonBuilder(list)
 				.toPrettyString()
+				
 	}
 
 }

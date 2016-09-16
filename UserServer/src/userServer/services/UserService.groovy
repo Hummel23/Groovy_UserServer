@@ -10,55 +10,30 @@ class UserService {
 
 	static def userListe = [] as LinkedBlockingQueue<User>
 
-
 	boolean removeUserFromList(def inetAddr){
-
 		boolean success = false
-		
-		//ODER		
-//				userListe.each{ it -> it.ip == inetAddr
-//					userListe.remove(it)
-//					success = true
-//				}
-		for (u in userListe) {
-			if(u.ip.equals(inetAddr)) {
-				assert u.ip == inetAddr
-				userListe.remove(u)
-				success = true
-
-			}
+		def user = userListe.find{ it -> it.ip == inetAddr}
+		if(user){
+			userListe.remove(user)
+			success = true
 		}
 		return success
 	}
 
 	def findInetAddr (String name){
-		def ip = ""
-		for(u in userListe){
-			if(u.name.equals(name)){
-				ip=u.ip
-			}
-		}
-		return ip
+		def user = userListe.find{ it.name == name }
+		return user ? user.ip : ""
 	}
 
 	void addUser (User user){
-		String userIP = user.ip
-		for (u in userListe){
-			if (u.ip==userIP){
-				userListe.remove(u)
-			}
-		}
+		def oldUser = userListe.find{it.ip == user.ip}
+		if(oldUser) { userListe.remove(oldUser) }
 		userListe.add(user)
 	}
 
 	boolean checkNamePresent(String name){
-		boolean namePresent = false
-		for (u in userListe) {
-			if(u.name.equals(name)){
-				namePresent = true
-			}
-		}
-		return namePresent
+		def user = userListe.find{it.name == name}
+		return user ? true : false
 	}
 }
 
